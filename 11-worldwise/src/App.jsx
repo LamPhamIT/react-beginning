@@ -11,7 +11,7 @@ import { useEffect } from "react";
 // import PageNav from "./components/PageNav";
 const BASE_URL = `http://localhost:8000/cities`;
 function App() {
-  const [cities, setCities] = useState({});
+  const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(
     function () {
@@ -28,7 +28,7 @@ function App() {
       }
       fetchCities();
     },
-    [cities]
+    []
   );
 
   return (
