@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { faker } from "@faker-js/faker";
 import { PostProvider, usePosts } from "./PostContext";
 
@@ -10,7 +10,7 @@ function createRandomPost() {
 }
 
 function App() {
-  const [isFakeDark, setIsFakeDark] = useState(false);
+  const [isFakeDark, setIsFakeDark] = useState(true);
 
   // Whenever `isFakeDark` changes, we toggle the `fake-dark-mode` class on the HTML element (see in "Elements" dev tool).
   useEffect(
@@ -56,7 +56,7 @@ function Header() {
 }
 
 function SearchPosts() {
-  const { searchQuery, setSearchQuery } = usePosts
+  const { searchQuery, setSearchQuery } = usePosts();
   return (
     <input
       value={searchQuery}
@@ -67,7 +67,7 @@ function SearchPosts() {
 }
 
 function Results() {
-  const { posts } = usePosts
+  const { posts } = usePosts();
   return <p>🚀 {posts.length} atomic posts found</p>;
 }
 
