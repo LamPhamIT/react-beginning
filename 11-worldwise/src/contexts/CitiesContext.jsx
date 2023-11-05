@@ -1,6 +1,5 @@
 import { useEffect, useReducer } from "react";
 import { useContext } from "react";
-import { useState } from "react";
 import { createContext } from "react";
 
 const BASE_URL = `http://localhost:8000`;
