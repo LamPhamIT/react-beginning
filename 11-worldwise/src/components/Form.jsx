@@ -23,6 +23,7 @@ export function convertToEmoji(countryCode) {
 }
 
 function Form() {
+  const navigate = useNavigate();
   const [lat, lng] = useUrlPosition();
 
   const { createCity, isLoading } = useCities();
@@ -42,6 +43,7 @@ function Form() {
 
       async function fetchCityData() {
         try {
+          console.log(lat, lng);
           setIsLoadingGeocoding(true);
           setGeocodingError("");
           const res = await fetch(
@@ -57,7 +59,6 @@ function Form() {
           setCountry(data.countryName);
           setEmoji(convertToEmoji(data.countryCode));
         } catch (err) {
-          console.log(err);
           setGeocodingError(err.message);
         } finally {
           setIsLoadingGeocoding(false);
@@ -68,7 +69,7 @@ function Form() {
     [lat, lng]
   );
 
-  function handleSubmit(e) {
+   async function handleSubmit(e) {
     e.preventDefault();
     if (!cityName || !date) {
       return;
@@ -79,9 +80,11 @@ function Form() {
       emoji,
       date,
       notes,
-      position: { lat, lng },
+      position: {lat, lng},
     };
-    createCity(newCity);
+    console.log(newCity);
+    await createCity(newCity);
+    navigate("/app/cities");
   }
 
   if (isLoadingGeocoding) return <Spinner />;
@@ -92,7 +95,10 @@ function Form() {
   if (geocodingError) return <Message message={geocodingError} />;
 
   return (
-    <form className={`${styles.form} ${isLoading ? styles.loading : ""}`} onSubmit={handleSubmit}>
+    <form
+      className={`${styles.form} ${isLoading ? styles.loading : ""}`}
+      onSubmit={handleSubmit}
+    >
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input

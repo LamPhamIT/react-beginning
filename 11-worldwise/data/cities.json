@@ -40,25 +40,13 @@
       "cityName": "Castello de la Plana",
       "country": "Spain",
       "emoji": "🇪🇸",
-      "date": "2023-11-05T09:54:20.880Z",
-      "notes": "ad",
+      "date": "2023-11-05T11:00:05.459Z",
+      "notes": "Tay ban nha",
       "position": {
-        "lat": "40.025774153992494",
-        "lng": "-0.03484725952148438"
+        "lat": "40.025379801070606",
+        "lng": "-0.06523132324218751"
       },
       "id": 98443198
-    },
-    {
-      "cityName": "Castello de la Plana",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2023-11-05T09:55:19.970Z",
-      "notes": "à",
-      "position": {
-        "lat": "40.025774153992494",
-        "lng": "-0.03484725952148438"
-      },
-      "id": 98443199
     }
   ]
 }
