@@ -1,4 +1,5 @@
 import { useEffect, useReducer } from "react";
+import { useCallback } from "react";
 import { useContext } from "react";
 import { createContext } from "react";
 
@@ -31,7 +32,7 @@ function reducer(state, action) {
         ...state,
         isLoading: false,
         cities: [...state.cities, action.payload],
-        currentCity: action.payload
+        currentCity: action.payload,
       };
     case "cities/deleted":
       return {
@@ -78,8 +79,8 @@ function CitiesProvider({ children }) {
     }
     fetchCities();
   }, []);
-
-  async function getCity(id) {
+    
+  const getCity = useCallback(async function getCity(id) {
     dispatch({ type: "loading" });
     try {
       const res = await fetch(`${BASE_URL}/cities/${id}`);
@@ -91,7 +92,7 @@ function CitiesProvider({ children }) {
         payload: "There was an error loading data...",
       });
     }
-  }
+  }, []);
 
   async function createCity(city) {
     dispatch({ type: "loading" });
