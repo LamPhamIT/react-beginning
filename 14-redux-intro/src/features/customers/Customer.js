@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import store from "../../Store";
+import store from "../../Store-v1";
 
 function Customer() {
   const customer = useSelector(store => store.customer)
