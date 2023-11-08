@@ -21,7 +21,7 @@ function AccountOperations() {
     if (!depositAmount) return;
     dispatch(deposit(depositAmount, currency));
     setDepositAmount("");
-    setCurrency("");
+    setCurrency("USD");
   }
 
   function handleWithdrawal() {
@@ -64,7 +64,7 @@ function AccountOperations() {
           </select>
 
           <button onClick={handleDeposit} disabled={isLoading}>
-            {isLoading ? `Deposit ${depositAmount}` : "Converting..."}
+            {isLoading ? "Converting..." : `Deposit ${depositAmount}`}
           </button>
         </div>
 
