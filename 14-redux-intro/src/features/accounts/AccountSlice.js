@@ -7,7 +7,7 @@ const initialState = {
   isLoading: false,
 };
 
-const accountSlide = createSlice({
+const accountSlice = createSlice({
   name: "account",
   initialState: initialState,
   reducers: {
@@ -42,7 +42,7 @@ const accountSlide = createSlice({
   },
 });
 
-export const { withdraw, requestLoan, payLoan } = accountSlide.actions;
+export const { withdraw, requestLoan, payLoan } = accountSlice.actions;
 
 export function deposit(amount, currency) {
   if (currency === "USD")
@@ -65,7 +65,7 @@ export function deposit(amount, currency) {
   };
 }
 
-export default accountSlide.reducer;
+export default accountSlice.reducer;
 /*
 export default function accountReducer(state = initialState, action) {
   switch (action.type) {
